@@ -1,2 +1,0 @@
-# MFC
-MFC Workspace
