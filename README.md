@@ -2,7 +2,7 @@
 >>This is MFC workspace.
 
 # 2. Outline
-- [Astar](https://github.com/lh9171338/ROS/tree/Astar)
-- [Dijkstra](https://github.com/lh9171338/ROS/tree/Dijkstra)
+- [Control(控件)](https://github.com/lh9171338/MFC/tree/Control)
 
-# 3. Outline
+# 3. More resources
+  >>Baidu Cloud link: https://pan.baidu.com/s/1FYlLz-fQTbl7fiXLtHaM6g
