@@ -1,0 +1,378 @@
+1.弹出式菜单
+	CMenu menupopup;
+	if(menupopup.CreatePopupMenu())
+	{
+	menupopup.AppendMenuW(MF_STRING,ID_RED,_T("红色\tCtrl+R"));
+	menupopup.AppendMenuW(MF_STRING,ID_GREEN,_T("绿色\tCtrl+G"));
+	menupopup.AppendMenuW(MF_STRING,ID_BLUE,_T("蓝色\tCtrl+B"));
+	menupopup.TrackPopupMenu(TPM_LEFTALIGN,point.x,point.y,this);			//显示菜单
+	}
+
+
+
+
+
+2.画笔颜色
+CClientDC dc(this);
+COLORREF m_color(RGB(0,255,0));
+CPen pen(PS_SOLID,1,m_color);
+dc.SelectObject(&pen);
+CBrush brush(RGB(255,0,0));
+dc.SelectObject(&pen);
+dc.SelectObject(&brush);
+dc.Rectangle(720,170,740,200);
+pDC->SelectStockObject(NULL_BRUSH);			//无填充
+
+3.状态栏
+	CString strcoin;
+	CMFCStatusBar* pStatus=(CMFCStatusBar* )AfxGetApp()->m_pMainWnd->GetDescendantWindow(ID_VIEW_STATUS_BAR);
+	if(pStatus)
+	{
+		strcoin.Format(_T("硬币:%d"),pDoc->m_ncoin);
+		pStatus->SetPaneWidth(1,500);
+		pStatus->SetPaneStyle(3,10);
+		pStatus->SetPaneTextColor(3,m_color);
+	   	pStatus->SetPaneText(1,strcoin);
+	}
+
+4.标题栏
+BOOL CcoinApp::InitInstance()
+{
+	m_pMainWnd->SetWindowTextW(_T("这是一个画硬币程序"));
+}
+
+5.获取屏幕最大坐标
+	CRect r;
+	GetClientRect(r);
+	CString str;
+	str.Format(_T("%d,%d,%d,%d"),r.left,r.top,r.right,r.bottom);
+	MessageBox(str);
+
+6.数组
+#include"Line.h"
+#include<afxtempl.h>						
+CTypedPtrArray<CObArray,CLine*>m_linearray;			
+CLine* getline(int n);								
+void addline(CPoint p1,CPoint p2,COLORREF color);				
+int getnumline();									
+
+
+CLine* CmydrawDoc::getline(int n)								//获取指定序号线段对象的指针
+{
+	if(n<0||n>m_linearray.GetUpperBound())
+		return NULL;
+	return m_linearray.GetAt(n);
+}
+void CmydrawDoc::addline(CPoint p1,CPoint p2,COLORREF color)					//向动态数组添加对象
+{
+	CLine *pline=new CLine(p1,p2,color);
+	m_linearray.Add(pline);
+}
+int CmydrawDoc::getnumline()									//获取线段数量
+{
+	return m_linearray.GetSize();
+}
+
+7.刷新视图
+
+BOOL CMYView::OnEraseBkgnd(CDC* pDC) 
+{
+     return CView::OnEraseBkgnd(pDC);
+}
+
+
+是调用父类的OnEraseBkgnd函数，我们屏蔽此调用，只须直接return TRUE;即可。
+
+下面是内存缓冲作图的步骤.
+
+CDC MemDC;
+	CBitmap MemBitmap;
+	CRect r;
+	GetClientRect(r);
+	MemDC.CreateCompatibleDC(NULL); 
+	MemBitmap.CreateCompatibleBitmap(pDC,r.right,r.bottom); 
+	CBitmap *pOldBit=MemDC.SelectObject(&MemBitmap); 
+	MemDC.FillSolidRect(0,0,r.right,r.bottom,RGB(255,255,255)); 
+
+	pDC->BitBlt(0,0,r.right,r.bottom,&MemDC,0,0,SRCCOPY); 
+	MemBitmap.DeleteObject(); 
+	MemDC.DeleteDC(); 
+
+
+由于复杂的画图操作转入后台，我们看到的是速度很快的复制操作，自然也就消除了闪烁现象。
+
+ 
+
+Q: OnEraseBkgnd函数中返回TRUE或FALSE有什么区别？
+
+A:  
+WM_ERASEBKGND
+Return Values
+An application should return nonzero if it erases the background; otherwise, it should return zero.
+
+A:true表示已处理背景刷新，false表示需要在OnPaint里处理
+
+Q:在OnEraseBkgnd中绘制对话框的背景图片和在OnPaint中绘制对话框的背景图片由什么区别，另外OnEraseBkgnd和CtlColor有什么区别？
+
+A:  
+OnEraseBkgnd是在窗口大小发生改变等情况下发生的，它将绘制窗口背景；而OnCtlColor是当窗口的控件需要绘制时发生的，它将绘制窗口的
+
+控件。
+  
+A:
+OnEraseBkgnd :在窗口背景需要重绘时调用.
+OnPaint : 此时OnEraseBkgnd已经调用过了,所以在此响应函数体内对背景进行的操作将覆盖OnEraseBkgnd中所做的操作.
+OnCtlColor : 有于在窗口将要被(第一次)绘制时响应,子窗口可以通过发关WM_CTLCOLOR请求父窗口传来一个HBRUSH.
+
+
+
+8.序列化
+void Serialize(CArchive &ar);
+DECLARE_SERIAL(CLine);
+
+IMPLEMENT_SERIAL(CLine,CObject,1)
+void CLine::Serialize(CArchive& ar)
+{
+	if (ar.IsStoring())
+	{
+		// TODO: 在此添加存储代码
+		ar<<m_p1<<m_p2;						//保存
+	}
+	else
+	{
+		// TODO: 在此添加加载代码
+		ar>>m_p1>>m_p2;						//读出
+	}
+}
+
+
+void CmydrawDoc::Serialize(CArchive& ar)
+{
+	if (ar.IsStoring())
+	{
+		// TODO: 在此添加存储代码
+		m_linearray.Serialize(ar);
+	}
+	else
+	{
+		// TODO: 在此添加加载代码
+		m_linearray.Serialize(ar);
+	}
+}
+
+
+8.
+MessageBox("你敲击了字符键B");	
+
+
+
+9.字体，字体大小
+CFont font;
+font.CreatePointFont(120,_T("宋体"));
+pDC->SelectObject(&font);
+pDC->TextOut(500,400,_T("李皓"));
+CFont font2;
+font2.CreatePointFont(120,_T("隶书"));
+CFont* pOldFont = pDC->SelectObject(&font2);
+获得设置前的字体
+pDC->TextOut(600,400,_T("李皓"));
+pDC->SelectObject(pOldFont);
+pDC->TextOut(700,400,_T("李皓"));
+
+10.加载文档图标
+HICON hicon=AfxGetApp()->LoadIconW(IDR_coinTYPE);
+	pDC->DrawIcon(500,200,hicon);
+
+
+
+11.取消窗口最大化
+
+
+cs.style &=~WS_MAXIMIZEBOX;
+cs.style &=~WS_MINIMIZEBOX;
+
+
+12.组合框data换行
+右键点击组合框，选择属性，在Data里面输入数据就行了，下面有说明：数据项用分号隔开即可。
+
+
+
+13.获得焦点
+this->SetFocus();
+this->GetFocus();
+
+
+14.
+CString   CFileDialog::GetPathName(   )   得到完整的文件名，包括目录名和扩展名如：c:\test\test1.txt   
+CString   CFileDialog::GetFileName(   )   得到完整的文件名，包括扩展名如：test1.txt   
+CString   CFileDialog::GetExtName(   )   得到完整的文件扩展名，如：txt   
+CString   CFileDialog::GetFileTitle   (   )   得到完整的文件名，不包括目录名和扩展名如：test1
+
+
+15.对话框刷新
+InvalidateRect(NULL);
+
+
+
+
+16.对话框存文件
+void CExmpListDlg::Serialize(CArchive &ar)
+{
+	if(ar.IsStoring())
+	{
+		int n=m_ListBx.GetCount();
+		ar<<n;
+		for(int i=0;i<n;i++)
+		{
+			sstate *p=(sstate*)m_ListBx.GetItemDataPtr(i);	
+			ar<<p->name<<p->capital<<p->populat<<p->area;								//存文件
+		}
+	}
+	else
+	{
+		sstate state1;
+		int n;
+		ar>>n;
+		for(int i=0;i<n;i++)
+		{
+			ar>>state1.name>>state1.capital>>state1.populat>>state1.area;				//读文件
+			m_ListBx.AddString(state1.name);
+			m_ListBx.SetItemDataPtr(i,new sstate(state1));		//建立关联
+		}
+	}
+}
+void CExmpListDlg::read()
+{
+	CFile file;
+	if(file.Open(_T("file1.dat"),CFile::modeRead))
+	{
+		CArchive ar(&file,CArchive::load);
+		Serialize(ar);
+		ar.Close();
+		file.Close();
+	}
+}
+void CExmpListDlg::save()
+{
+	CFile file;
+	if(file.Open(_T("file1.dat"),CFile::modeCreate|CFile::modeWrite))
+	{
+		CArchive ar(&file,CArchive::store);
+		Serialize(ar);
+		ar.Close();
+		file.Close();
+	}
+}
+
+
+17.ShowWindow用法
+函数功能：该函数设置指定窗口的显示状态。
+函数原型：BOOL ShowWindow（HWND hWnd, int nCmdShow）；
+hWnd:指窗口句柄。
+nCmdShow：指定窗口如何显示。如果发送应用程序的程序提供了STARTUPINFO结构，则应用程序第一次调用ShowWindow时该参数被忽略。否则，在第一次调用ShowWindow函数时，该值应为在函数WinMain中nCmdShow参数。在随后的调用中，该参数可以为下列值之一：
+SW_FORCEMINIMIZE：在WindowNT5.0中最小化窗口，即使拥有窗口的线程被挂起也会最小化。在从其他线程最小化窗口时才使用这个参数。
+SW_HIDE：隐藏窗口并激活其他窗口。
+SW_MAXIMIZE：最大化指定的窗口。
+SW_MINIMIZE：最小化指定的窗口并且激活在Z序中的下一个顶层窗口。
+SW_RESTORE：激活并显示窗口。如果窗口最小化或最大化，则系统将窗口恢复到原来的尺寸和位置。在恢复最小化窗口时，应用程序应该指定这个标志。
+SW_SHOW：在窗口原来的位置以原来的尺寸激活和显示窗口。
+SW_SHOWDEFAULT：依据在STARTUPINFO结构中指定的SW_FLAG标志设定显示状态，STARTUPINFO 结构是由启动应用程序的程序传递给CreateProcess函数的。
+SW_SHOWMAXIMIZED：激活窗口并将其最大化。
+SW_SHOWMINIMIZED：激活窗口并将其最小化。
+SW_SHOWMINNOACTIVE：窗口最小化，激活窗口仍然维持激活状态。
+SW_SHOWNA：以窗口原来的状态显示窗口。激活窗口仍然维持激活状态。
+SW_SHOWNOACTIVATE：以窗口最近一次的大小和状态显示窗口。激活窗口仍然维持激活状态。
+SW_SHOWNORMAL：激活并显示一个窗口。如果窗口被最小化或最大化，系统将其恢复到原来的尺寸和大小。应用程序在第一次显示窗口的时候应该指定此标志。
+返回值编辑
+如果窗口之前可见，则返回值为非零。如果窗口之前被隐藏，则返回值为零。
+
+18.加音频
+
+#include <mmsystem.h>
+#pragma comment( lib, "Winmm.lib" ) 
+BOOL PlaySound(LPCSTR pszSound, HMODULE hmod,DWORD fdwSound); 
+PlaySound((LPCTSTR)IDR_WAVE1, AfxGetInstanceHandle(), SND_RESOURCE | SND_ASYNC); 
+
+19.
+1.使用CTime类 　　
+
+ 
+
+CTime tm;
+tm=CTime::GetCurrentTime();
+m_date.Format(_T("%4d-%2d-%2d %2d:%2d:%2d"),tm.GetYear(),tm.GetMonth(),tm.GetDay(),tm.GetHour(),tm.GetMinute(),tm.GetSecond());
+
+ 
+
+2: 得到系统时间日期(使用GetLocalTime) 　
+
+　
+SYSTEMTIME st;
+GetLocalTime(&st);
+m_date.Format(_T("%4d-%2d-%2d %2d:%2d:%2d"),st.wYear,st.wMonth,st.wDay,st.wHour,st.wMinute,st.wSecond);
+
+ 
+
+3.使用GetTickCount//获取程序运行时间 　
+
+　
+
+long t1=GetTickCount();//程序段开始前取得系统运行时间(ms) 　　
+
+Sleep(500); long t2=GetTickCount();//程序段结束后取得系统运行时间(ms) 　　
+
+str.Format("time:%dms",t2-t1);//前后之差即 程序运行时间 　　
+
+AfxMessageBox(str);//获取系统运行时间 　　
+
+long t=GetTickCount(); 　　
+
+CString str,str1; 　　
+
+str1.Format("系统已运行 %d时",t/3600000); 　　
+
+str=str1; t%=3600000; 　　
+
+str1.Format("%d分",t/60000); 　　
+
+str+=str1; t%=60000; 　　
+
+str1.Format("%d秒",t/1000); 　　
+
+str+=str1; AfxMessageBox(str);
+
+ 
+
+参考:http://websky18.com/wlbc/vcbc/2010-04-22/677.html
+
+20.控件上画图
+
+void CLayoutDlg::OnPaint()
+{
+CPaintDC dc(this);
+
+CButton* pButton = (CButton*)GetDlgItem(IDC_BUTTON_LAYOUT3);
+ASSERT(pButton && pButton->GetSafeHwnd());
+CDC* pdc = pButton->GetDC();          获得控件DC
+
+CPen pen;
+pen.CreatePen(PS_SOLID, 1, RGB(0, 255, 0));  绿笔
+CPen* pOldpen = pdc->SelectObject(&pen);        
+//CRect rect; 
+//m_layoutBtn3.GetWindowRect(&rect);
+//m_layoutBtn3.ScreenToClient(&rect);
+//rect.OffsetRect(rect.left, rect.top); 
+pdc-> MoveTo(2, 20);            画一条横线，一条竖线
+pdc-> LineTo(42, 20);
+pdc-> MoveTo(22, 2);
+pdc-> LineTo(22, 37);
+//pdc-> LineTo(rect.left, rect.bottom);
+//pdc-> LineTo(rect.left, rect.top);
+pdc-> SelectObject(pOldpen);
+
+ReleaseDC(pdc);
+}
+画线其实就是 获得 控件 DC ，然后 Moveto  ，Lineto ，就行了
+
+21.模板类
+原来是模板类的成员函数不能在一个单独的文件里定义

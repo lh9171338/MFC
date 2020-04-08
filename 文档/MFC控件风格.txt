@@ -1,0 +1,247 @@
+Windows常见窗口样式和控件风格
+                 王佰营 徐丽红
+
+一、窗口样式
+
+WS_POPUP        弹出式窗口(不能与WS_CHILDWINDOW样式同时使用)
+WS_CHILDWINDOW  子窗口(不能与WS_POPUP合用)
+WS_MINIMIZE     创建窗口拥有最小化按钮
+WS_MINIMIZEBOX  创建窗口拥有最小化按钮，须同时指定WS_SYSTEM样式
+WS_VISIBLE      可见状态
+WS_DISABLED     不可用状态
+WS_CLIPSIBLINGS 使窗口排除子窗口之间的相对区域
+WS_CLIPCHILDREN 当在父窗口内绘图时,排除子窗口区域
+WS_MAXIMIZE     具有最大化按钮
+WS_MAXIMIZEBOX  创建窗口拥有最大化按钮，须同时指定WS_SYSTEM样式
+WS_CAPTION      有标题框和边框(和WS_TILED样式相同)
+WS_BORDER       有单边框
+WS_DLGFRAME     带对话框边框样式,不带标题框
+WS_VSCROLL      有垂直滚动条
+WS_HSCROLL      有水平滚动条
+WS_SYSMENU      标题框上带有窗口菜单(须指定WS_CAPTION样式)
+WS_THICKFRAME   有可调边框(与WS_SIZEBOX样式相同)
+WS_TILED        与WS_OVERLAPPED风格相同
+WS_TILEDWINDOW  与WWS_OVERLAPPEDWINDOW风格相同
+WS_GROUP        组样式,每个组的第一个控件具有WS_TABSTOP样式
+WS_TABSTOP      可接受TAB键
+WS_OVERLAPPED   创建一个重叠式窗口,拥有标题栏和边框
+WS_OVERLAPPEDWINDOW 即:WS_OVERLAPPED风格,WS_CAPTION风格,WS_SYSMENU风格
+                  WS_THICKFRAME风格,WS_MINIMIZEBOX风格和WS_MAXIMIZEBOX
+                    风格的组合
+
+ 
+
+ 
+
+/* 窗口扩展样式参考列表：
+WS_EX_DLGMODALFRAME -                   带双层边框
+WS_EX_NOPARENTNOTIFY -                    创建/销毁时不通知父窗口
+WS_EX_TOPMOST -                                     窗口置顶(停留在所有非最高层窗口的上面)
+WS_EX_ACCEPTFILES -                               可接受文件拖放
+WS_EX_TRANSPARENT - =&H20             透明样式,在同属窗口已重画时该窗口才可重画
+WS_EX_MDICHILD -                                     MDI子窗口样式
+WS_EX_TOOLWINDOW -                             工具条窗口样式
+WS_EX_WINDOWEDGE -                             带凸起边缘的边框
+WS_EX_CLIENTEDGE -                                 带阴影的边缘
+WS_EX_CONTEXTHELP -                                有上下文帮助样式,标题栏包含一个问号标志
+WS_EX_RIGHT - 右对齐
+WS_EX_RTLREADING -                                 窗口文本从右到左显示
+WS_EX_LEFTSCROLLBAR -                         垂直滚动条在窗口左边界
+WS_EX_CONTROLPARENT -                         允许用户使用TAB键在窗口的子窗口间搜索
+WS_EX_STATICEDGE -                                     当窗口为不可用状态时创建一个三维边缘
+WS_EX_APPWINDOW -                                    当窗口可见时将一个顶层窗口放置在任务栏上
+WS_EX_OVERLAPPEDWINDOW -                 带凸起边缘的边框,边缘有阴影
+WS_EX_PALETTEWINDOW -                         带立体边框,有工具条窗口样式,窗口在顶层
+WS_EX_LAYERED  =&H80000                           分层或透明窗口,该样式可使用混合特效
+WS_EX_NOINHERITLAYOUT - 子控件不继承窗体或控件的布局
+WS_EX_LAYOUTRTL - 窗体或控件将具有从右向左的布局(因而会被镜像)
+WS_EX_COMPOSITED - 用双缓冲从下到上绘制窗口的所有子孙(WinXP以上)
+WS_EX_NOACTIVATE - 处于顶层但不激活
+
+
+二、按钮风格 
+    
+BS_AUTOCHECKBOX   同复选按钮类似，点击一下选中，再次点击取消。
+BS_AUTORADIOBUTTON同单选按钮类似，点击后选中标志将从同组的其他单选按钮处移到当前选项。
+BS_CHECKBOX       复选按钮
+BS_DEFPUSHBUTTON   默认普通按钮，具有较黑的边框。
+BS_GROUPBOX       分组框
+BS_LEFTTEXT       同单选按钮或复选按钮配合使用，标题将显示在左侧。
+BS_OWNERDRAW       可创建一个拥有者自绘按钮。
+BS_PUSHBUTTON       普通下压按钮
+BS_RADIOBUTTON       圆形单选按钮
+BS_3STATE       三态复选按钮,三种状态即：选中，未选中，未定
+BS_AUTOCHECKBOX   检查框，按钮的状态会自动改变
+BS_AUTORADIOBUTTON圆形选择按钮，按钮的状态会自动改变
+BS_AUTO3STATE     允许按钮有三种状态即：选中，未选中，未定
+BS_CHECKBOX       检查框
+BS_LEFTTEXT       左对齐文字
+
+三、旋转按钮控件
+
+UDS_HORZ 指定一个水平旋转按钮．若不指定该风格则创建一个垂直的旋转按钮．
+UDS_WRAP 当旋转按钮增大到超过最大值时，自动重置为最小值，当减小至低于最小值时，自动重置为最大值．
+UDS_ARROWKEYS 当用户按下向下或向上箭头键时，旋转按钮值递增或递减．
+UDS_SETBUDDYINT 旋转按钮将自动更新伙伴控件中显示的数值，如果伙伴控件能接受输入，则可在伙伴控件中输入新的旋转按钮值．
+UDS_NOTHOUSANDS 伙伴控件中显示的数值每隔三位没有千位分隔符．
+UDS_AUTOBUDDY  自动使旋转按钮拥有一个伙伴控件．
+UDS_ALIGNRIGHT 旋转按钮在伙伴控件的右侧．
+UDS_ALIGNLEFT  旋转按钮在伙伴控件的左侧．
+
+四、轨道条控件
+
+TBS_HORZ 指定一个水平轨道条．该风格是默认的．
+TBS_VERT 指定一个垂直轨道条．
+TBS_AUTOTICKS 在范围设定后，自动为轨道条加上刻度．
+TBS_NOTICKS 轨道条无刻度．
+TBS_BOTTOM  在水平轨道条的底部显示刻度，可与TBS_TOP一起使用．
+TBS_TOP 在水平轨道条的顶部显示刻度，可与TBS_BOTTOM一起使用．
+TBS_RIGHT 在垂直轨道条的右侧显示刻度，可与TBS_LEFT一起使用．
+TBS_LEFT 在垂直轨道条的左侧显示刻度，可与TBS_RIGHT一起使用．
+TBS_BOTH 在轨道条的上下部或左右两侧都显示刻度．
+TBS_ENABLESELRANGE 在轨道条中显示一个选择范围．
+
+五、文本编辑框风格
+
+ES_AUTOHSCROLL     当在行尾添加一个字符后自动向右滚动10个字符。
+ES_AUTOVSCROLL     当输入回车后自动上滚一行。
+ES_CENTER     字符居中显示。
+ES_LEFT     字符左对齐。
+ES_LOWERCASE     统一转化为小写字母。
+ES_MULTILINE     允许多行显示。
+ES_NOHIDESEL     当编辑失去焦点时隐藏对字符的选定，重新获得焦点后以反色显示选中内容。
+ES_OEMCONVERT     将ANSI字符转化为OEM字符。
+ES_PASSWORD     以星号显示字符，多用于回显密码。
+ES_RIGHT     字符右对齐
+ES_UPPERCASE     统一转化为大写字母。
+ES_READONLY     设置字符为只读。
+ES_WANTRETURN     接受回车键输入。
+
+六、列表框风格 
+    
+LBS_STANDARD     创建一个具有边界和垂直滚动条、当选择发生变化或条目被双击时能够通知父窗口的标准列表框。所有条目按字母排序。
+LBS_SORT     按字母排序。
+LBS_NOSEL     条目可视但不可选。
+LBS_NOTIFY     当用户选择或双击一个串时，发出消息通知父窗口。
+LBS_DISABLENOSCROLL     在条目不多时依然显示并不起作用的滚动条。
+LBS_MULTIPLESEL     允许条目多选。
+LBS_EXTENDEDSEL     可用SHIFT和鼠标或指定键组合来选择多个条目。
+LBS_MULTICOLUMN     允许多列显示。
+LBS_OWNERDRAWVARIABLE     创建一个拥有者画列表框，条目高度可以不同。
+LBS_OWNERDRAWFIXED     创建一个具有相同条目高度的拥有者画列表框。
+LBS_USETABSTOPS     允许使用TAB制表符。
+LBS_NOREDRAW     当条目被增删后不自动更新列表显示。
+LBS_HASSTRINGS     记忆了添加到列表中的字串。
+LBS_WANTKEYBOARDINPUT     当有键按下时向父窗口发送WM_VKEYTOITEM或WM_CHARTOITEM消息。
+LBS_NOINTEGRALHEIGHT     按程序设定尺寸创建列表框。
+
+七、组合框风格
+
+CBS_AUTOHSCROLL 当在行尾输入字符时自动将编辑框中的文字向右滚动。
+CBS_DROPDOWN     同CBS_SIMPLE风格类似，只是只有在用户点击下拉图标时才会显示出下拉列表。
+CBS_DROPDOWNLIST 同CBS_DROPDOWN类似，只是显示当前选项的编辑框为一静态框所代替。
+CBS_HASSTRINGS     创建一个包含了由字串组成的项目的拥有者画组合框。
+CBS_OEMCONVERT     将组合框中的ANSI字串转化为OEM字符。
+CBS_OWNERDRAWFIXED 由下拉列表框的拥有者负责对内容的绘制；列表框中各项目高度相同。
+CBS_OWNERDRAWVARIABLE 由下拉列表框的拥有者负责对内容的绘制；列表框中各项目高度可以不同。
+CBS_SIMPLE     下拉列表始终显示。
+CBS_SORT     自动对下拉列表中的项目进行排序。
+CBS_DISABLENOSCROLL 当下拉列表显示内容过少时显示垂直滚动条。
+CBS_NOINTEGRALHEIGHT在创建控件时以指定的大小来精确设定组合框尺寸。
+
+八、树形视图控件
+
+TVS_HASLINES 在父项与子项间连线以清楚地显示结构．
+TVS_LINESATROOT 只在根部画线．
+TVS_HASBUTTONS 显示带有＂+＂或＂-＂的小方框来表示某项能否被展开或已展开．
+TVS_EDITLABELS 用户可以编辑表项的标题．
+TVS_SHOWSELALWAYS 即使控件失去输入焦点，仍显示出项的选择状态．
+TVS_DISABLEDRAGDROP 不支持拖动操作．
+
+九、列表视图控件
+
+
+LVS_ALIGNLEFT 当显示格式是大图标或小图标时，标题放在图标的左边．缺省情况下标题放在图标的下面．
+LVS_ALIGNTOP 当显示格式是大图标或小图标时，标题放在图标的上边．
+LVS_AUTOARRANGE 当显示格式是大图标或小图标时，自动排列控件中的表项．
+LVS_EDITLABELS 用户可以修改标题．
+LVS_ICON 指定大图标显示格式．
+LVS_LIST 指定列表显示格式．
+LVS_NOCOLUMNHEADER 在报告格式中不显示列的表头．
+LVS_NOLABELWRAP 当显示格式是大图标时，使标题单行显示．缺省时是多行显示．
+LVS_NOSCROLL 列表视图无滚动条．
+LVS_NOSORTHEADER 报告列表视图的表头不能作为排序按钮使用．
+LVS_OWNERDRAWFIXED 由控件的拥有者负责绘制表项．
+LVS_REPORT 指定报告 显示格式．
+LVS_SHAREIMAGELISTS 使列表视图共享图像序列．
+LVS_SHOWSELALWAYS 即使控件失去输入焦点，仍显示出项的选择状态．
+LVS_SINGLESEL 指定一个单选择列表视图．缺省时可以多项选择．
+LVS_SMALLICON 指定小图标显示格式．
+LVS_SORTASCENDING 按升序排列表项．
+LVS_SORTDESCENDING 按降序排列表项．
+
+十、静态文本框风格
+
+SS_CENTER        字符居中显示。
+SS_LEFT          字符左对齐。
+SS_LEFTNOWORADWRAP 字符左对齐,可处理TAB制表符，不支持自动换行，超过末尾字符被裁剪。
+SS_BLACKRECT    用窗口边框色填充的矩形。
+SS_BLSCKFRAME   矩形边框，与窗口边框同色。
+SS_GRAYRECT     用屏幕背景色填充的矩行。
+SS_GRAYFRAME    矩形边框，使用屏幕背景色。
+SS_WHITERECT    用窗口背景色填充的矩行。
+SS_RIGHT        字符右对齐
+SS_WHITEFRAME   矩形边框，使用窗口背景色。
+
+ 
+
+ 
+
+/* 控件样式参考列表：
+DS_ABSALIGN - 对话框的坐标为屏幕坐标(缺省为客户区坐标)
+DS_SYSMODAL - 系统模式(仅支持16位程序),不能与DS_CONTROL同用
+DS_LOCALEDIT - 在对话框内部为编辑框分配内存(仅支持16位程序)
+DS_SETFONT - 可定制对话框字体
+DS_MODALFRAME - 框架样式(不能与WS_CAPTION同用)
+DS_NOIDLEMSG - 无空闲消息
+DS_SETFOREGROUND - 使对话框在最前面显示
+DS_3DLOOK - 四周有3维边框
+DS_FIXEDSYS - 使用系统固定字体
+DS_NOFAILCREATE - 忽略创建过程中的错误
+DS_CONTROL - 控件模式,可作为其他对话框的子窗口
+DS_CENTER - 在屏幕居中
+DS_CENTERMOUSE - 在鼠标位置居中
+DS_CONTEXTHELP - 有上下文帮助按钮
+
+ 
+
+ 
+
+近日来工作中需要类似于QQ聊天窗口那样，窗口最小化缩到任务栏，点任务栏上的按钮可以复原窗口，由于窗口是子窗口，所以我们重载了窗口的CreateParams方法如下：
+
+ 
+
+procedure TsubForm2.CreateParams(var Params: TCreateParams);
+begin
+    inherited CreateParams(Params); 
+    with Params do begin
+        ExStyle := ExStyle or WS_EX_APPWINDOW;
+        WndParent := GetDesktopWindow();
+    end;
+end;
+
+这样窗口就可以在任务栏上显示了。
+
+ 
+
+但是又碰到一个问题，就是由于窗口样式被我设置成了bs_None，为无边框窗口，所以我点任务栏上的窗口按钮的时候，窗口无法复原和收缩回任务栏。
+
+后来仔细看了一下窗口样式，想想，我们的目的无非是能够响应普通窗口一样的消息，于是，我将窗口设置成bs_Sizeable，然后就能够实现QQ聊天窗口的那 个效果，于是，俺就想在bs_Sizeable的样式下减去窗口的边框样式，这样来测试，于是俺先减去了一个WS_Caption标题样式，此时窗口可以实现QQ聊天窗口的那种样式了，但是多了一个边框，又仔细查看了一下Windows的窗口样式，发现一个样式WS_THICKFRAME，该样式是用来拖动窗口大小的时候的一个窗口边框，于是俺在多减去该样式
+
+最后效果实现
+
+在窗口的Create事件中
+
+加上一个样式设置的就可
+
+SetWindowLong(Handle,GWL_STYLE,GetWindowLong(Handle,GWL_STYLE) and (not WS_CAPTION) and (not WS_THICKFRAME));
