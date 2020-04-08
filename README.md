@@ -5,7 +5,7 @@
 >>This repository is a Tank game based on MFC.
 
 # 2. UI
-![image](https://github.com/lh9171338/MFC/blob/Tank/UI-01.png)
+![image](https://github.com/lh9171338/MFC/blob/Tank/UI-01.png)  
 ![image](https://github.com/lh9171338/MFC/blob/Tank/UI-02.png)
 
 # 3. More Resources
