@@ -10,9 +10,10 @@
 - [Player(播放器)](https://github.com/lh9171338/MFC/tree/Player)
 - [Minesweeper(扫雷)](https://github.com/lh9171338/MFC/tree/Minesweeper)
 - [Snakey(贪吃蛇)](https://github.com/lh9171338/MFC/tree/Snakey)
-- [Sokoban (推箱子)](https://github.com/lh9171338/MFC/tree/Sokoban )
+- [Sokoban(推箱子)](https://github.com/lh9171338/MFC/tree/Sokoban)
 - [Tank(坦克大战)](https://github.com/lh9171338/MFC/tree/Tank)
 - [Tetris(俄罗斯方块)](https://github.com/lh9171338/MFC/tree/Tetris)
+- [Klotski(华容道)](https://github.com/lh9171338/MFC/tree/Klotski)
 
-# 3. More resources
+# 3. More Resources
  - [Baidu Cloud Link](https://pan.baidu.com/s/1FYlLz-fQTbl7fiXLtHaM6g)
