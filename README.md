@@ -2,7 +2,7 @@
 ===
 
 # 1. Introduction
->>This repository contains demos of MFC controls, including button, listbox, combobox, dialog, toolbar, mouse and keyboard, etc.
+>>This repository contains demos of MFC controls, including button, listbox, combobox, dialog, toolbar, mouse, keyboard, etc.
 
 # 2. UI
 ![image](https://github.com/lh9171338/MFC/blob/Calculator/UI.png)
