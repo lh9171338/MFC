@@ -5,7 +5,7 @@
 >>This repository is a simple audio and video player based on MFC.
 
 # 2. UI
-![image](https://github.com/lh9171338/MFC/blob/Player/UI-01.png)
+![image](https://github.com/lh9171338/MFC/blob/Player/UI-01.png)  
 ![image](https://github.com/lh9171338/MFC/blob/Player/UI-02.png)
 
 # 3. More Resources
