@@ -1,5 +1,8 @@
+[<img height="23" src="https://github.com/lh9171338/Outline/blob/master/icon.jpg"/>](https://github.com/lh9171338/Outline) MFC
+===
+
 # 1. Introduction
->>This is MFC workspace.
+>>This repository is MFC workspace.
 
 # 2. Outline
 - [Control(控件)](https://github.com/lh9171338/MFC/tree/Control)
@@ -12,4 +15,4 @@
 - [Tetris(俄罗斯方块)](https://github.com/lh9171338/MFC/tree/Tetris)
 
 # 3. More resources
-  >>Baidu Cloud link: https://pan.baidu.com/s/1FYlLz-fQTbl7fiXLtHaM6g
+ - [Baidu Cloud Link](https://pan.baidu.com/s/1FYlLz-fQTbl7fiXLtHaM6g)
