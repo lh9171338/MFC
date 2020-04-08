@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\Calculator.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Calculator.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\cheng.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\chu.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\clean.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\delete.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\deng.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\dian.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\eight.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\five.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\four.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\jia.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\jian.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\left.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\nine.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\one.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\right.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\seven.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\six.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\three.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\two.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="F:\android\资料\《Android智能手机软件开发教程》\《Android智能手机软件开发教程》\第六章\Chapter6\正文中出现的工程\Calculator\res\drawable\zero.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\cheng.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\chu.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\clean.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\delete.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\deng.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\dian.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\eight.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\five.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\four.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\jia.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\jian.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\left.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\nine.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\one.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\right.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\seven.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\six.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\three.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\two.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\zero.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Calculator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CalculatorDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Calculator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CalculatorDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Calculator.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
