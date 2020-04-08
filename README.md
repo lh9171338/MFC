@@ -5,8 +5,8 @@
 >>This repository is a Klotski game based on MFC.
 
 # 2. UI
-![image](https://github.com/lh9171338/MFC/blob/Klotski/UI-01.png)
-![image](https://github.com/lh9171338/MFC/blob/Klotski/UI-02.png)
+![image](https://github.com/lh9171338/MFC/blob/Klotski/UI-01.png)  
+![image](https://github.com/lh9171338/MFC/blob/Klotski/UI-02.png)  
 ![image](https://github.com/lh9171338/MFC/blob/Klotski/UI-03.png)
 
 # 3. More Resources
